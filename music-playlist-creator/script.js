@@ -3,6 +3,7 @@ const selectedPlaylist = document.getElementsByClassName("playlist-cards")[0];
 const modal = document.getElementById("playlist-modal");
 const closeBtn = document.getElementById("close-btn");
 
+
 document.addEventListener("DOMContentLoaded", function () {
   fetch("data/data.json")
     .then((response) => {
@@ -19,9 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
 closeBtn.addEventListener("click", function () {
   modal.style.display = "none";
 });
+
 
 window.addEventListener("click", function (event) {
   if (event.target == modal) {
@@ -29,10 +32,12 @@ window.addEventListener("click", function (event) {
   }
 });
 
+
 function displayPlaylists(playlists) {
+  let playlistContainer = document.getElementById("playlist-container");
+
   playlists.forEach((playlist) => {
-    let playlistContainer = document.getElementById("playlist-container");
-    let playlistToDisplay = document.createElement("article");
+    const playlistToDisplay = document.createElement("article");
     playlistToDisplay.className = "playlist-cards";
     playlistToDisplay.id = playlist.playlistID;
 
@@ -47,26 +52,62 @@ function displayPlaylists(playlists) {
       `;
 
     playlistToDisplay.addEventListener("click", function () {
-      openModal(playlist.playlistID);
+      openModal(playlist.playlistID, playlists);
     });
 
     playlistContainer.appendChild(playlistToDisplay);
   });
+
+  if (playlists.length == 0) {
+    let noPlaylistsMessage = document.createElement("h3");
+    noPlaylistsMessage.className = "no-playlists";
+    noPlaylistsMessage.textContent = "No playlists added";
+    playlistContainer.appendChild(noPlaylistsMessage);
+  }
 }
 
-function openModal(playlistID) {
-   console.log(playlistID);
-  // const foundPlaylist = ... use id
-  //   document.getElementById("festivalName").innerText = festival.name;
-  //   document.getElementById("festivalImage").src = festival.imageUrl;
-  //   document.getElementById(
-  //     "festivalDates"
-  //   ).innerText = `Dates: ${festival.dates}`;
-  //   document.getElementById(
-  //     "festivalLocation"
-  //   ).innerText = `Location: ${festival.location}`;
-  //   document.getElementById(
-  //     "artistLineup"
-  //   ).innerHTML = `<strong>Lineup:</strong> ${festival.lineup.join(", ")}`;
+
+function openModal(selectedPlaylistID, playlists) {
+  const selectedPlaylist = playlists.find(
+    (playlist) => playlist.playlistID === selectedPlaylistID
+  );
+
+  const modalPlaylistInfo = document.createElement("section");
+  modalPlaylistInfo.className = "modal-img-title-author";
+
+  modalPlaylistInfo.innerHTML = `
+   <img class="modal-playlist-image" src="${selectedPlaylist.playlist_art}" alt="${selectedPlaylist.playlist_name}"/>
+   <div class="modal-title-author">
+      <h2>${selectedPlaylist.playlist_name} </h2>
+      <h3>${selectedPlaylist.playlist_author}</h3>
+   </div>
+  `;
+
+  const modalSongInfo = document.createElement("section");
+  modalSongInfo.className = "modal-songs";
+
+  selectedPlaylist.songs.forEach((song) => {
+   modalSongInfo.innerHTML += 
+   `
+   <article class="song">
+      <img
+         class="modal-song-image"
+         src="${song.song_art}"
+         alt="${song.name}"
+      />
+      <div>
+         <h4>${song.name}</h4>
+         <h5>${song.artist}</h5>
+      </div>
+      <h4 class="duration">${song.duration}</h4>
+   </article>
+   `
+  })
+
+  const modalContent = document.getElementById('modal-content');
+  modalContent.replaceChildren(closeBtn);
+  modalContent.appendChild(modalPlaylistInfo);
+  modalContent.appendChild(modalSongInfo);
+
   modal.style.display = "block";
 }

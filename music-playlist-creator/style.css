@@ -2,16 +2,16 @@ body {
   font-family: "Arial", sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f8f8f8;
   border: 4px solid gray;
   height: 100vh;
 }
 
 header {
-  background-color: rgb(216, 215, 215);
-  border-bottom: 2px solid lightgray;
+  background-image: url("assets/img/header.png");
+  border-bottom: 2px solid darkgray;
   padding: 2px 0 2px 20px;
   height: 10vh;
+  color: white;
 }
 
 main {
@@ -24,8 +24,9 @@ main {
 footer {
   height: 5vh;
   margin-top: auto;
-  border-top: 2px solid lightgray;
+  border-top: 2px solid darkgray;
   background-color: rgb(216, 215, 215);
+  padding-left: 10px;
 }
 
 .playlist-container {
@@ -44,6 +45,13 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  background-color:rgb(249, 243, 235);
+}
+.playlist-cards:hover,
+.playlist-cards:focus {
+  cursor: pointer;
+  background-color:rgb(238, 228, 215);
+  box-shadow: 10px 10px 20px lightgray;
 }
 
 .playlist-img {
@@ -89,10 +97,10 @@ footer {
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 15vh auto;
+  background-color: rgb(228, 240, 247);
+  margin: 10vh auto;
   padding: 20px;
-  border: 1px solid #888;
+  border: 2px solid darkgray;
   border-radius: 15px;
   width: 60vw;
   height: 70vh;
@@ -110,4 +118,49 @@ footer {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+.modal-img-title-author {
+  height: 25vh;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.modal-playlist-image {
+  width: auto;
+  height: 25vh;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+.modal-title-author {
+  margin-left: 20px;
+}
+
+.modal-songs {
+  margin-top: 15px;
+}
+
+.song {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px;
+  border: 2px solid darkgray;
+  margin: 5px 0 5px 0;
+  background-color:rgb(249, 243, 235);
+}
+
+.modal-song-image {
+  width: auto;
+  height: 10vh;
+  border-radius: 10px;
+  border: 1px solid gray;
+  margin: 0 20px 0 10px;
+}
+
+.duration {
+  color: #aaa;
+  margin: 0 20px 0 auto;
 }
