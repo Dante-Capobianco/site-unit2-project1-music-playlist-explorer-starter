@@ -2,6 +2,7 @@
 const modal = document.getElementById("playlist-modal");
 const closeBtn = document.getElementById("close-btn");
 let allPlaylists;
+let randomPlaylistIndex;
 
 document.addEventListener("DOMContentLoaded", function () {
   fetch("data/data.json")
@@ -12,25 +13,54 @@ document.addEventListener("DOMContentLoaded", function () {
       return response.json();
     })
     .then((data) => {
-      displayPlaylists(data);
+      allPlaylists = data;
+      if (window.location.pathname.includes("index.html")) {
+        displayPlaylists();
+      }
     })
     .catch((error) => {
       console.error("There was a problem: ", error);
     });
-});
 
-closeBtn.addEventListener("click", function () {
-  modal.style.display = "none";
-});
+  const allTabItem = document.getElementById("all-tab-item");
+  const featuredTabItem = document.getElementById("featured-tab-item");
 
-window.addEventListener("click", function (event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+  if (window.location.pathname.includes("index.html")) {
+    allTabItem.style.color = "rgb(238, 228, 215)";
+
+    featuredTabItem.addEventListener("click", function () {
+      const newURL = window.location.href.replace(
+        "index.html",
+        "featured.html"
+      );
+      window.location.href = newURL;
+    });
+
+    closeBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    });
+  } else {
+    featuredTabItem.style.color = "rgb(238, 228, 215)";
+
+    allTabItem.addEventListener("click", function () {
+      const newURL = window.location.href.replace(
+        "featured.html",
+        "index.html"
+      );
+      window.location.href = newURL;
+    });
+
+    randomPlaylistIndex = Math.random() % allPlaylists.length;
   }
 });
 
-function displayPlaylists(playlists) {
-  allPlaylists = playlists;
+function displayPlaylists() {
   const playlistContainer = document.getElementById("playlist-container");
 
   allPlaylists.forEach((playlist) => {
@@ -178,3 +208,5 @@ function fisherYatesShuffle(songs) {
 
   modalContent.appendChild(newModalSongInfo);
 }
+
+// Math.random() % allPlaylists.length

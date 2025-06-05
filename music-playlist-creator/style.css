@@ -9,9 +9,22 @@ body {
 header {
   background-image: url("assets/img/header.png");
   border-bottom: 2px solid darkgray;
-  padding: 2px 0 2px 20px;
+  padding: 2px 30px 2px 20px;
   height: 10vh;
   color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-tabs {
+  display: flex;
+  gap: 20px;
+}
+
+.header-tab-item:hover {
+  color: rgb(238, 228, 215);
+  cursor: pointer;
 }
 
 main {
