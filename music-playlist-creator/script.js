@@ -1,8 +1,7 @@
 // JavaScript for Opening and Closing the Modal
-const selectedPlaylist = document.getElementsByClassName("playlist-cards")[0];
 const modal = document.getElementById("playlist-modal");
 const closeBtn = document.getElementById("close-btn");
-
+let allPlaylists;
 
 document.addEventListener("DOMContentLoaded", function () {
   fetch("data/data.json")
@@ -20,11 +19,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
 closeBtn.addEventListener("click", function () {
   modal.style.display = "none";
 });
-
 
 window.addEventListener("click", function (event) {
   if (event.target == modal) {
@@ -32,11 +29,11 @@ window.addEventListener("click", function (event) {
   }
 });
 
-
 function displayPlaylists(playlists) {
-  let playlistContainer = document.getElementById("playlist-container");
+  allPlaylists = playlists;
+  const playlistContainer = document.getElementById("playlist-container");
 
-  playlists.forEach((playlist) => {
+  allPlaylists.forEach((playlist) => {
     const playlistToDisplay = document.createElement("article");
     playlistToDisplay.className = "playlist-cards";
     playlistToDisplay.id = playlist.playlistID;
@@ -46,19 +43,21 @@ function displayPlaylists(playlists) {
       <h2 class="playlist-title">${playlist.playlist_name}</h2>
       <p class="playlist-author">${playlist.playlist_author}</p>
       <div class="playlist-like">
-         <span class="material-symbols-outlined">favorite</span> 
-         ${playlist.like_count}
+         <span id="heart-${playlist.playlistID}" class="material-symbols-outlined" onclick="adjustLikeCount('${playlist.playlistID}')">favorite</span> 
+         <span id="like-${playlist.playlistID}">${playlist.like_count}</span>
       </div>
       `;
 
-    playlistToDisplay.addEventListener("click", function () {
-      openModal(playlist.playlistID, playlists);
+    playlistToDisplay.addEventListener("click", function (event) {
+      if (!event.target.className.includes("material-symbols-outlined")) {
+        openModal(playlist.playlistID);
+      }
     });
 
     playlistContainer.appendChild(playlistToDisplay);
   });
 
-  if (playlists.length == 0) {
+  if (allPlaylists.length == 0) {
     let noPlaylistsMessage = document.createElement("h3");
     noPlaylistsMessage.className = "no-playlists";
     noPlaylistsMessage.textContent = "No playlists added";
@@ -66,9 +65,8 @@ function displayPlaylists(playlists) {
   }
 }
 
-
-function openModal(selectedPlaylistID, playlists) {
-  const selectedPlaylist = playlists.find(
+function openModal(selectedPlaylistID) {
+  const selectedPlaylist = allPlaylists.find(
     (playlist) => playlist.playlistID === selectedPlaylistID
   );
 
@@ -80,6 +78,7 @@ function openModal(selectedPlaylistID, playlists) {
    <div class="modal-title-author">
       <h2>${selectedPlaylist.playlist_name} </h2>
       <h3>${selectedPlaylist.playlist_author}</h3>
+      <button class="shuffle-btn">Shuffle</button>
    </div>
   `;
 
@@ -87,8 +86,7 @@ function openModal(selectedPlaylistID, playlists) {
   modalSongInfo.className = "modal-songs";
 
   selectedPlaylist.songs.forEach((song) => {
-   modalSongInfo.innerHTML += 
-   `
+    modalSongInfo.innerHTML += `
    <article class="song">
       <img
          class="modal-song-image"
@@ -101,13 +99,34 @@ function openModal(selectedPlaylistID, playlists) {
       </div>
       <h4 class="duration">${song.duration}</h4>
    </article>
-   `
-  })
+   `;
+  });
 
-  const modalContent = document.getElementById('modal-content');
+  const modalContent = document.getElementById("modal-content");
   modalContent.replaceChildren(closeBtn);
   modalContent.appendChild(modalPlaylistInfo);
   modalContent.appendChild(modalSongInfo);
 
   modal.style.display = "block";
+}
+
+function adjustLikeCount(selectedPlaylistID) {
+  const selectedPlaylist = allPlaylists.find(
+    (playlist) => playlist.playlistID === selectedPlaylistID
+  );
+
+  const playlistLikeButton = document.getElementById(
+    `heart-${selectedPlaylistID}`
+  );
+  if (playlistLikeButton.classList.contains("highlight-like")) {
+   selectedPlaylist.like_count--;
+  } else {
+   selectedPlaylist.like_count++;
+  }
+  playlistLikeButton.classList.toggle("highlight-like");
+
+  const playlistLikeCount = document.getElementById(
+    `like-${selectedPlaylistID}`
+  );
+  playlistLikeCount.textContent = selectedPlaylist.like_count;
 }

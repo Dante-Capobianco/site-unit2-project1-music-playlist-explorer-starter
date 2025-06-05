@@ -75,7 +75,12 @@ footer {
   align-items: center;
   gap: 5px;
 }
-/* Change to red if clicked */
+
+.highlight-like.material-symbols-outlined {
+  color: red;
+  font-variation-settings: "FILL" 100, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+/* Change to light red if hovered */
 .material-symbols-outlined:hover,
 .material-symbols-outlined:focus {
   cursor: pointer;
@@ -105,6 +110,7 @@ footer {
   width: 60vw;
   height: 70vh;
   overflow: auto;
+  box-shadow: 30px 30px 40px black;
 }
 
 .close {
@@ -135,6 +141,19 @@ footer {
 
 .modal-title-author {
   margin-left: 20px;
+}
+
+.shuffle-btn {
+  font-size: 18px;
+  background-color:rgb(249, 243, 235);
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+.shuffle-btn:hover,
+.shuffle-btn:focus {
+  background-color:rgb(238, 228, 215);
+  cursor: pointer;
 }
 
 .modal-songs {
