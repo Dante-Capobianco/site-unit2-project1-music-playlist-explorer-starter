@@ -20,10 +20,10 @@
 
     <main>
       <section class="playlist-container">
-        <article class="playlist-cards">
+        <article class="playlist-cards" onclick="openModal('Playlist Title')">
           <img src="assets/img/playlist.png" alt="" class="playlist-img" />
           <h2 class="playlist-title">Playlist Title</h2>
-          <p class="playlist-author">Creator Name</p>
+          <p class="playlist-author">Author Name</p>
           <div class="playlist-like">
             <span class="material-symbols-outlined">favorite</span>
             5
@@ -39,10 +39,16 @@
       </section>
     </main>
 
+    <div id="playlist-modal" class="modal">
+      <div class="modal-content">
+        <span id="close-btn" class="close">&times;</span>
+      </div>
+    </div>
+
     <footer>
       <!-- Your footer content here -->
     </footer>
-    <script src="data/data.js"></script>
+    <!-- <script src="data/data.js"></script> -->
     <script src="script.js"></script>
   </body>
 </html>
