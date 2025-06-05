@@ -2,7 +2,6 @@
 const modal = document.getElementById("playlist-modal");
 const closeBtn = document.getElementById("close-btn");
 let allPlaylists;
-let randomPlaylistIndex;
 
 document.addEventListener("DOMContentLoaded", function () {
   fetch("data/data.json")
@@ -16,6 +15,32 @@ document.addEventListener("DOMContentLoaded", function () {
       allPlaylists = data;
       if (window.location.pathname.includes("index.html")) {
         displayPlaylists();
+      } else {
+        const randomPlaylist =
+          allPlaylists[Math.floor(Math.random() * allPlaylists.length)];
+        const featuredPlaylist = document.getElementById("featured-playlist");
+        featuredPlaylist.innerHTML = `
+        <img class="featured-img" src="${randomPlaylist.playlist_art}" alt="${randomPlaylist.playlist_name}">
+        <h2>${randomPlaylist.playlist_name}</h2>
+        `;
+
+        const featuredSongs = document.getElementById("featured-songs");
+        randomPlaylist.songs.forEach((song) => {
+          featuredSongs.innerHTML += `
+         <article class="song"> 
+            <img
+               class="modal-song-image"
+               src="${song.song_art}"
+               alt="${song.name}"
+            />
+            <div>
+               <h4>${song.name}</h4>
+               <h5>${song.artist}</h5>
+            </div>
+            <h4 class="duration">${song.duration}</h4>
+         </article>
+         `;
+        });
       }
     })
     .catch((error) => {
@@ -55,8 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
       );
       window.location.href = newURL;
     });
-
-    randomPlaylistIndex = Math.random() % allPlaylists.length;
   }
 });
 

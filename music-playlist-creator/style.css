@@ -199,3 +199,30 @@ footer {
   color: #aaa;
   margin: 0 20px 0 auto;
 }
+
+/* Featured styling */
+.featured-main {
+  display: flex;
+}
+
+.featured-playlist {
+  border-right: 1px solid darkgray;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.featured-img {
+  height: auto;
+  width: 30vw;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+.featured-songs {
+  padding: 15px 20px 15px 20px;
+  overflow: auto;
+  width: 50vw;
+}
