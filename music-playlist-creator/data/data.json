@@ -1,0 +1,504 @@
+[
+  {
+    "playlistID": "top-ariana-grande-songs",
+    "playlist_name": "Top Ariana Grande Songs",
+    "playlist_author": "Bernie Waller",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 27,
+    "songs": [
+      {
+        "name": "Into You",
+        "artist": "Ariana Grande",
+        "duration": "4:04",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "No Tears Left to Cry",
+        "artist": "Ariana Grande",
+        "duration": "3:26",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "7 Rings",
+        "artist": "Ariana Grande",
+        "duration": "2:58",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Thank U, Next",
+        "artist": "Ariana Grande",
+        "duration": "3:27",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Positions",
+        "artist": "Ariana Grande",
+        "duration": "2:52",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "God is a woman",
+        "artist": "Ariana Grande",
+        "duration": "3:17",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Break Free",
+        "artist": "Ariana Grande",
+        "duration": "3:34",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Dangerous Woman",
+        "artist": "Ariana Grande",
+        "duration": "3:55",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Side to Side",
+        "artist": "Ariana Grande",
+        "duration": "3:46",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  },
+  {
+    "playlistID": "house-music",
+    "playlist_name": "House Music",
+    "playlist_author": "DJ Eliza Ray",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 142,
+    "songs": [
+      {
+        "name": "Pjanoo",
+        "artist": "Eric Prydz",
+        "duration": "3:39",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Cola",
+        "artist": "CamelPhat & Elderbrook",
+        "duration": "3:44",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Your Love",
+        "artist": "Mark Knight",
+        "duration": "6:32",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Turn Back Time",
+        "artist": "Diplo & Sonny Fodera",
+        "duration": "3:25",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Losing It",
+        "artist": "FISHER",
+        "duration": "4:09",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  },
+  {
+    "playlistID": "workout-tunes",
+    "playlist_name": "Workout Tunes",
+    "playlist_author": "Jae Adams",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 310,
+    "songs": [
+      {
+        "name": "Stronger",
+        "artist": "Kanye West",
+        "duration": "5:12",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Eye of the Tiger",
+        "artist": "Survivor",
+        "duration": "4:05",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Till I Collapse",
+        "artist": "Eminem",
+        "duration": "4:58",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Can't Hold Us",
+        "artist": "Macklemore & Ryan Lewis",
+        "duration": "4:18",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Remember the Name",
+        "artist": "Fort Minor",
+        "duration": "3:50",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  },
+  {
+    "playlistID": "billboard-top-hits",
+    "playlist_name": "Billboard Top Hits",
+    "playlist_author": "Top Charts",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 489,
+    "songs": [
+      {
+        "name": "As It Was",
+        "artist": "Harry Styles",
+        "duration": "2:47",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Flowers",
+        "artist": "Miley Cyrus",
+        "duration": "3:20",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Paint The Town Red",
+        "artist": "Doja Cat",
+        "duration": "3:49",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Cruel Summer",
+        "artist": "Taylor Swift",
+        "duration": "2:58",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Good 4 U",
+        "artist": "Olivia Rodrigo",
+        "duration": "2:58",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  },
+  {
+    "playlistID": "electronic-vibes",
+    "playlist_name": "Electronic Vibes",
+    "playlist_author": "Taylor Anderson",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 321,
+    "songs": [
+      {
+        "name": "Strobe",
+        "artist": "Deadmau5",
+        "duration": "10:33",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Opus",
+        "artist": "Eric Prydz",
+        "duration": "9:56",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Titanium",
+        "artist": "David Guetta ft. Sia",
+        "duration": "4:05",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Clarity",
+        "artist": "Zedd ft. Foxes",
+        "duration": "4:31",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Animals",
+        "artist": "Martin Garrix",
+        "duration": "5:03",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Ghosts 'n' Stuff",
+        "artist": "Deadmau5",
+        "duration": "3:45",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Yeah!",
+        "artist": "Usher",
+        "duration": "3:55",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  },
+  {
+    "playlistID": "rock-and-roll-classics",
+    "playlist_name": "Rock & Roll Classics",
+    "playlist_author": "Skyler Turner",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 198,
+    "songs": [
+      {
+        "name": "Johnny B. Goode",
+        "artist": "Chuck Berry",
+        "duration": "2:41",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Jailhouse Rock",
+        "artist": "Elvis Presley",
+        "duration": "2:28",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Great Balls of Fire",
+        "artist": "Jerry Lee Lewis",
+        "duration": "1:52",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "La Bamba",
+        "artist": "Ritchie Valens",
+        "duration": "2:06",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Tutti Frutti",
+        "artist": "Little Richard",
+        "duration": "2:25",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Hound Dog",
+        "artist": "Elvis Presley",
+        "duration": "2:18",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  },
+  {
+    "playlistID": "hip-hop-heat",
+    "playlist_name": "Hip-Hop Heat",
+    "playlist_author": "Morgan White",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 420,
+    "songs": [
+      {
+        "name": "Sicko Mode",
+        "artist": "Travis Scott",
+        "duration": "5:12",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Goosebumps",
+        "artist": "Travis Scott",
+        "duration": "4:04",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "HUMBLE.",
+        "artist": "Kendrick Lamar",
+        "duration": "2:57",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Alright",
+        "artist": "Kendrick Lamar",
+        "duration": "3:39",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Money Trees",
+        "artist": "Kendrick Lamar",
+        "duration": "6:27",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Mask Off",
+        "artist": "Future",
+        "duration": "3:24",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  },
+  {
+    "playlistID": "rap-essentials",
+    "playlist_name": "Rap Essentials",
+    "playlist_author": "Riley Smith",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 289,
+    "songs": [
+      {
+        "name": "God's Plan",
+        "artist": "Drake",
+        "duration": "3:19",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Lose Yourself",
+        "artist": "Eminem",
+        "duration": "5:26",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "The Real Slim Shady",
+        "artist": "Eminem",
+        "duration": "4:44",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "In Da Club",
+        "artist": "50 Cent",
+        "duration": "3:13",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Started From the Bottom",
+        "artist": "Drake",
+        "duration": "2:53",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Nonstop",
+        "artist": "Drake",
+        "duration": "3:58",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  },
+  {
+    "playlistID": "imagine-dragons-collection",
+    "playlist_name": "Imagine Dragons Collection",
+    "playlist_author": "Jamie Lee",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 367,
+    "songs": [
+      {
+        "name": "Believer",
+        "artist": "Imagine Dragons",
+        "duration": "3:24",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Radioactive",
+        "artist": "Imagine Dragons",
+        "duration": "3:06",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Demons",
+        "artist": "Imagine Dragons",
+        "duration": "2:57",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Thunder",
+        "artist": "Imagine Dragons",
+        "duration": "3:07",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Enemy",
+        "artist": "Imagine Dragons ft. JID",
+        "duration": "2:53",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Whatever It Takes",
+        "artist": "Imagine Dragons",
+        "duration": "3:21",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  },
+  {
+    "playlistID": "the-weeknd-hits",
+    "playlist_name": "The Weeknd Hits",
+    "playlist_author": "Casey Johnson",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 411,
+    "songs": [
+      {
+        "name": "Blinding Lights",
+        "artist": "The Weeknd",
+        "duration": "3:20",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Save Your Tears",
+        "artist": "The Weeknd",
+        "duration": "3:35",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "The Hills",
+        "artist": "The Weeknd",
+        "duration": "4:02",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Can't Feel My Face",
+        "artist": "The Weeknd",
+        "duration": "3:35",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Starboy",
+        "artist": "The Weeknd ft. Daft Punk",
+        "duration": "3:50",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "I Feel It Coming",
+        "artist": "The Weeknd ft. Daft Punk",
+        "duration": "4:29",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  },
+  {
+    "playlistID": "best-of-drake",
+    "playlist_name": "Best of Drake",
+    "playlist_author": "Devon Patel",
+    "playlist_art": "assets/img/playlist.png",
+    "like_count": 278,
+    "songs": [
+      {
+        "name": "One Dance",
+        "artist": "Drake",
+        "duration": "2:54",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Hotline Bling",
+        "artist": "Drake",
+        "duration": "4:27",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Passionfruit",
+        "artist": "Drake",
+        "duration": "4:58",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Take Care",
+        "artist": "Drake ft. Rihanna",
+        "duration": "4:37",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Nice for What",
+        "artist": "Drake",
+        "duration": "3:30",
+        "song_art": "assets/img/song.png"
+      },
+      {
+        "name": "Hold On, We're Going Home",
+        "artist": "Drake",
+        "duration": "3:47",
+        "song_art": "assets/img/song.png"
+      }
+    ]
+  }
+]
+

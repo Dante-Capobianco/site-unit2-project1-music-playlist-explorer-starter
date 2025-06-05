@@ -30,12 +30,13 @@ footer {
 
 .playlist-container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    margin-left: 3.5vw;
 }
 
 .playlist-cards {
-    margin: 10px 0 10px 0;
+    margin: 10px 3.5vw 10px 0;
     width: 20vw;
     height: 40vh;
     border: 2px solid darkgray;
