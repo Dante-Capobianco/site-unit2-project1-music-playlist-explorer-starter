@@ -78,12 +78,13 @@ function openModal(selectedPlaylistID) {
    <div class="modal-title-author">
       <h2>${selectedPlaylist.playlist_name} </h2>
       <h3>${selectedPlaylist.playlist_author}</h3>
-      <button class="shuffle-btn">Shuffle</button>
+      <button id="shuffle-btn" class="shuffle-btn">Shuffle</button>
    </div>
   `;
 
   const modalSongInfo = document.createElement("section");
   modalSongInfo.className = "modal-songs";
+  modalSongInfo.id = "modal-songs";
 
   selectedPlaylist.songs.forEach((song) => {
     modalSongInfo.innerHTML += `
@@ -107,6 +108,12 @@ function openModal(selectedPlaylistID) {
   modalContent.appendChild(modalPlaylistInfo);
   modalContent.appendChild(modalSongInfo);
 
+  const shuffleBtn = document.getElementById("shuffle-btn");
+  shuffleBtn.addEventListener("click", function () {
+    shuffleBtn.blur();
+    fisherYatesShuffle(selectedPlaylist.songs);
+  });
+
   modal.style.display = "block";
 }
 
@@ -119,9 +126,9 @@ function adjustLikeCount(selectedPlaylistID) {
     `heart-${selectedPlaylistID}`
   );
   if (playlistLikeButton.classList.contains("highlight-like")) {
-   selectedPlaylist.like_count--;
+    selectedPlaylist.like_count--;
   } else {
-   selectedPlaylist.like_count++;
+    selectedPlaylist.like_count++;
   }
   playlistLikeButton.classList.toggle("highlight-like");
 
@@ -129,4 +136,45 @@ function adjustLikeCount(selectedPlaylistID) {
     `like-${selectedPlaylistID}`
   );
   playlistLikeCount.textContent = selectedPlaylist.like_count;
+}
+
+function fisherYatesShuffle(songs) {
+  let currentIndex = songs.length;
+
+  while (currentIndex != 0) {
+    const randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [songs[currentIndex], songs[randomIndex]] = [
+      songs[randomIndex],
+      songs[currentIndex],
+    ];
+  }
+
+  const modalContent = document.getElementById("modal-content");
+  const modalSongInfo = document.getElementById("modal-songs");
+  modalContent.removeChild(modalSongInfo);
+
+  const newModalSongInfo = document.createElement("section");
+  newModalSongInfo.className = "modal-songs";
+  newModalSongInfo.id = "modal-songs";
+
+  songs.forEach((song) => {
+    newModalSongInfo.innerHTML += `
+   <article class="song">
+      <img
+         class="modal-song-image"
+         src="${song.song_art}"
+         alt="${song.name}"
+      />
+      <div>
+         <h4>${song.name}</h4>
+         <h5>${song.artist}</h5>
+      </div>
+      <h4 class="duration">${song.duration}</h4>
+   </article>
+   `;
+  });
+
+  modalContent.appendChild(newModalSongInfo);
 }

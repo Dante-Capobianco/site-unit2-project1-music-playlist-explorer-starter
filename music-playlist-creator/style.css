@@ -46,12 +46,15 @@ footer {
   flex-direction: column;
   justify-content: flex-start;
   background-color:rgb(249, 243, 235);
+  transition: box-shadow 0.3s ease-in-out, scale 0.3s ease-in-out;
+  box-shadow: 0 0 0 darkgray;
 }
 .playlist-cards:hover,
 .playlist-cards:focus {
   cursor: pointer;
   background-color:rgb(238, 228, 215);
   box-shadow: 10px 10px 20px lightgray;
+  scale: 1.04
 }
 
 .playlist-img {
