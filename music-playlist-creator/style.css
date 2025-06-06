@@ -93,10 +93,6 @@ footer {
   gap: 5px;
 }
 
-.edit-playlist {
-  margin: 0 15px 0 auto;
-}
-
 .highlight-like.material-symbols-outlined {
   color: red;
   font-variation-settings: "FILL" 100, "wght" 400, "GRAD" 0, "opsz" 24;
@@ -107,6 +103,22 @@ footer {
   cursor: pointer;
   color: lightcoral;
   font-variation-settings: "FILL" 100, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+.edit-playlist {
+  margin: 0 0 0 auto;
+}
+.edit-playlist:hover,
+.edit-playlist:focus {
+color: lightblue;
+}
+
+.delete-playlist {
+  margin: 0 10px 0 10px;
+}
+.delete-playlist:hover,
+.delete-playlist:focus {
+color: darkslategray;
 }
 
 /* Modal styling */
