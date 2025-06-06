@@ -17,6 +17,57 @@ header {
   align-items: center;
 }
 
+.search-bar-input {
+  appearance: base-select;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  background-color: rgb(249, 243, 235);
+  color: black;
+  width: 15vw;
+  padding: 10px 10px 10px 10px;
+  cursor: text;
+  font-size: 16px;
+}
+
+.search-bar-input:focus {
+  outline: none;
+  border: 2px solid gray;
+}
+
+.search-submit-btn, .search-clear-btn {
+  appearance: base-select;
+  border: 2px solid darkgray;
+  border-radius: 20px;
+  background-color: rgb(249, 243, 235);
+  color: black;
+  width: 5vw;
+  padding: 8px 5px 8px 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.search-submit-btn:focus, .search-clear-btn:focus,
+.search-submit-btn:hover, .search-clear-btn:hover {
+  background-color: rgb(238, 228, 215);
+  border: 2px solid gray;
+}
+
+.sort-options {
+  appearance: base-select;
+  border: 2px solid darkgray;
+  border-radius: 5px;
+  background-color: rgb(249, 243, 235);
+  color: black;
+  width: 20vw;
+  padding: 10px 10px 10px 10px;
+  cursor: pointer;
+}
+
+.sort-options:focus {
+  outline: none;
+  border: 2px solid gray;
+}
+
 .header-tabs {
   display: flex;
   gap: 20px;
@@ -110,7 +161,7 @@ footer {
 }
 .edit-playlist:hover,
 .edit-playlist:focus {
-color: lightblue;
+  color: lightblue;
 }
 
 .delete-playlist {
@@ -118,7 +169,7 @@ color: lightblue;
 }
 .delete-playlist:hover,
 .delete-playlist:focus {
-color: darkslategray;
+  color: darkslategray;
 }
 
 /* Modal styling */
@@ -268,7 +319,8 @@ color: darkslategray;
   gap: 5px;
 }
 
-.form-text-input, .form-song-input {
+.form-text-input,
+.form-song-input {
   margin-bottom: 10px;
   width: 15vw;
   height: 20px;
@@ -278,7 +330,8 @@ color: darkslategray;
   font-size: 14px;
   outline: none;
 }
-.form-text-input:focus, .form-song-input:focus {
+.form-text-input:focus,
+.form-song-input:focus {
   border: 1px solid darkgray;
 }
 

@@ -16,21 +16,26 @@
   <body>
     <header>
       <h1>Music Playlist Explorer</h1>
-      <!-- todo: add search-bar & search-bar-input & search-submit-btn & search-clear-btn classes -->
-      <div class="search-bar">
-        <input type="text" placeholder="Search" class="search-bar-input" id="search-bar-input"/>
+      <div>
+        <input
+          type="text"
+          placeholder="Search"
+          class="search-bar-input"
+          id="search-bar-input"
+        />
         <button id="search-submit-btn" class="search-submit-btn">Submit</button>
         <button id="search-clear-btn" class="search-clear-btn">Clear</button>
       </div>
-       <!-- todo: add sort-options class -->
-      <div class="sort-options">
-        <label for="sort-select">Choose a sorting method:</label>
-        <select id="sort-select">
-          <option value="date">Date Added (Recent -> Oldest)</option>
-          <option value="alphabetical">Playlist Name (Alphabetical)</option>
-          <option value="likes">Likes (Most -> Least)</option>
-        </select>
-      </div>
+
+      <select class="sort-options" id="sort-select">
+        <option value="" disabled selected hidden>
+          Choose a sorting method
+        </option>
+        <option value="date">Date Added (Recent -> Oldest)</option>
+        <option value="alphabetical">Playlist Name (Alphabetical)</option>
+        <option value="likes">Likes (Most -> Least)</option>
+      </select>
+
       <div class="header-tabs">
         <h3 id="all-tab-item" class="header-tab-item">All</h3>
         <h3 id="featured-tab-item" class="header-tab-item">Featured</h3>
