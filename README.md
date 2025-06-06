@@ -129,14 +129,23 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
   - [x] Selecting a sort option should result in a reordering based on the selected sort while maintaining a grid view.
 
 ### Walkthrough Video
+<div>
+    <a href="https://www.loom.com/share/e610427273ca4df28b7f207431fd02a0">
+      <p>Video Pt. 1</p>
+    </a>
+    <a href="https://www.loom.com/share/e610427273ca4df28b7f207431fd02a0">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/e610427273ca4df28b7f207431fd02a0-681824d515abe35f-full-play.gif">
+    </a>
+  </div>
 
-## Video
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/e610427273ca4df28b7f207431fd02a0?sid=dfe7afee-e1e7-48ee-b1e1-1f7905d83e9a" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
-
-## Quick Demonstration of Editing (specifically, the requirement to edit some of author, name, and songs)
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/61502ac8a9b14ad2997f47fc4d20ff66?sid=793ee3db-c3a7-4ec9-9e74-1287c680b9d0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+<div>
+    <a href="https://www.loom.com/share/61502ac8a9b14ad2997f47fc4d20ff66">
+      <p>Video Pt. 2 (Quick Demonstration of Editing - specifically, the requirement to edit some of author, name, and songs)</p>
+    </a>
+    <a href="https://www.loom.com/share/61502ac8a9b14ad2997f47fc4d20ff66">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/61502ac8a9b14ad2997f47fc4d20ff66-a7f087a7e3a1099e-full-play.gif">
+    </a>
+  </div>
 
 ### Reflection
 
