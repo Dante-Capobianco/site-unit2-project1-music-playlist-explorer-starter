@@ -67,6 +67,26 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = newURL;
     });
 
+    const searchSubmitBtn = document.getElementById("search-submit-btn");
+    searchSubmitBtn.addEventListener("click", function () {
+      searchSubmitBtn.blur();
+      search();
+    });
+
+    const searchClearBtn = document.getElementById("search-clear-btn");
+    searchClearBtn.addEventListener("click", function () {
+      searchClearBtn.blur();
+      clearSearch();
+    });
+
+    const searchInputField = document.getElementById("search-bar-input");
+    searchInputField.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        searchInputField.blur();
+        search();
+      }
+    });
+
     const addPlaylistBtn = document.getElementById("add-playlist-btn");
     addPlaylistBtn.addEventListener("click", function () {
       addPlaylistBtn.blur();
@@ -84,10 +104,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const selectSortMenu = document.getElementById("sort-select");
-    selectSortMenu.addEventListener("change", function() {
+    selectSortMenu.addEventListener("change", function () {
       playlistSortingMethod = this.value;
       displayPlaylists();
-    })
+    });
   } else {
     featuredTabItem.style.color = "rgb(238, 228, 215)";
 
@@ -118,7 +138,8 @@ function displayPlaylists() {
       const playlistLikeButton = document.getElementById(
         `heart-${playlist.playlistID}`
       );
-      playlistLikeButton && playlistLikeButton.classList.contains("highlight-like")
+      playlistLikeButton &&
+      playlistLikeButton.classList.contains("highlight-like")
         ? likedPlaylists.push("highlight-like")
         : likedPlaylists.push("");
     }
@@ -500,4 +521,24 @@ function updatePlaylists(newPlaylists) {
     }
     return sortOrder;
   });
+}
+
+function search() {
+  const searchInput = document
+    .getElementById("search-bar-input")
+    .value.toLowerCase();
+  const newPlaylists = allPlaylists.filter(
+    (playlist) =>
+      playlist.playlist_name.toLowerCase().includes(searchInput) ||
+      playlist.playlist_author.toLowerCase().includes(searchInput)
+  );
+  updatePlaylists(newPlaylists);
+  displayPlaylists();
+}
+
+function clearSearch() {
+  const searchInput = document.getElementById("search-bar-input");
+  searchInput.value = "";
+  updatePlaylists(allPlaylists);
+  displayPlaylists();
 }
