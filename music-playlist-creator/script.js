@@ -1,4 +1,3 @@
-// JavaScript for Opening and Closing the Modal
 const modal = document.getElementById("playlist-modal");
 const closeBtn = document.getElementById("close-btn");
 let allPlaylists;
@@ -18,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then((data) => {
       allPlaylists = data;
-      console.log(allPlaylists)
+      console.log(allPlaylists);
       updatePlaylists(allPlaylists);
       if (window.location.pathname.includes("index.html")) {
         displayPlaylists();
@@ -83,6 +82,12 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "none";
       }
     });
+
+    const selectSortMenu = document.getElementById("sort-select");
+    selectSortMenu.addEventListener("change", function() {
+      playlistSortingMethod = this.value;
+      displayPlaylists();
+    })
   } else {
     featuredTabItem.style.color = "rgb(238, 228, 215)";
 
@@ -97,15 +102,31 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function displayPlaylists() {
-   const playlists = playlistSortingMethod === "date"
+  const playlists =
+    playlistSortingMethod === "date"
       ? allPlaylistsDateAdded
       : playlistSortingMethod === "alphabetical"
       ? allPlaylistsAlphabetical
       : allPlaylistsLikes;
   const playlistContainer = document.getElementById("playlist-container");
+
+  let likedPlaylists = [];
+  playlists.forEach((playlist) => {
+    if (!playlistContainer.innerHTML) {
+      likedPlaylists.push("");
+    } else {
+      const playlistLikeButton = document.getElementById(
+        `heart-${playlist.playlistID}`
+      );
+      playlistLikeButton && playlistLikeButton.classList.contains("highlight-like")
+        ? likedPlaylists.push("highlight-like")
+        : likedPlaylists.push("");
+    }
+  });
+
   playlistContainer.innerHTML = "";
 
-  playlists.forEach((playlist) => {
+  playlists.forEach((playlist, index) => {
     const playlistToDisplay = document.createElement("article");
     playlistToDisplay.className = "playlist-cards";
     playlistToDisplay.id = playlist.playlistID;
@@ -115,7 +136,7 @@ function displayPlaylists() {
       <h2 class="playlist-title">${playlist.playlist_name}</h2>
       <p class="playlist-author">${playlist.playlist_author}</p>
       <div class="playlist-like">
-         <span id="heart-${playlist.playlistID}" class="material-symbols-outlined" onclick="adjustLikeCount('${playlist.playlistID}')">favorite</span> 
+         <span id="heart-${playlist.playlistID}" class="${likedPlaylists[index]} material-symbols-outlined" onclick="adjustLikeCount('${playlist.playlistID}')">favorite</span> 
          <span id="like-${playlist.playlistID}">${playlist.like_count}</span>
          <span class="edit-playlist material-symbols-outlined" onclick="openPlaylistForm('Edit', '${playlist.playlistID}')">edit</span>
          <span class="delete-playlist material-symbols-outlined" onclick="deletePlaylist('${playlist.playlistID}')">delete</span>
@@ -211,6 +232,8 @@ function adjustLikeCount(selectedPlaylistID) {
     `like-${selectedPlaylistID}`
   );
   playlistLikeCount.textContent = selectedPlaylist.like_count;
+
+  displayPlaylists();
 }
 
 function fisherYatesShuffle(songs) {
@@ -467,7 +490,14 @@ function deletePlaylist(playlistID) {
 
 function updatePlaylists(newPlaylists) {
   allPlaylistsDateAdded = newPlaylists.toReversed();
-  allPlaylistsAlphabetical = newPlaylists.toSorted((playlistA, playlistB) => playlistA.playlist_name.localeCompare(playlistB.playlist_name));
-  allPlaylistsLikes = newPlaylists.toSorted((playlistA, playlistB) => playlistB.like_count - playlistA.like_count);
-  console.log(allPlaylists, allPlaylistsDateAdded, allPlaylistsAlphabetical, allPlaylistsLikes)
+  allPlaylistsAlphabetical = newPlaylists.toSorted((playlistA, playlistB) =>
+    playlistA.playlist_name.localeCompare(playlistB.playlist_name)
+  );
+  allPlaylistsLikes = newPlaylists.toSorted((playlistA, playlistB) => {
+    const sortOrder = playlistB.like_count - playlistA.like_count;
+    if (sortOrder === 0) {
+      return playlistA.playlist_name.localeCompare(playlistB.playlist_name);
+    }
+    return sortOrder;
+  });
 }

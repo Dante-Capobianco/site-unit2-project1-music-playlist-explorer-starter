@@ -16,6 +16,14 @@
   <body>
     <header>
       <h1>Music Playlist Explorer</h1>
+      <div class="sort-options">
+        <label for="sort-select">Choose a sorting method:</label>
+        <select id="sort-select">
+          <option value="date">Date Added (Recent -> Oldest)</option>
+          <option value="alphabetical">Playlist Name (Alphabetical)</option>
+          <option value="likes">Likes (Most -> Least)</option>
+        </select>
+      </div>
       <div class="header-tabs">
         <h3 id="all-tab-item" class="header-tab-item">All</h3>
         <h3 id="featured-tab-item" class="header-tab-item">Featured</h3>
