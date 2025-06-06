@@ -130,10 +130,13 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
 
 ### Walkthrough Video
 
-<a href="https://www.loom.com/share/YOUR_VIDEO_ID">
-   <p>Project video title</p>
-   <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/YOUR_VIDEO_ID-with-play.gif">
-</a>
+## Video
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/e610427273ca4df28b7f207431fd02a0?sid=dfe7afee-e1e7-48ee-b1e1-1f7905d83e9a" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+
+## Quick Demonstration of Editing (specifically, the requirement to edit some of author, name, and songs)
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0;"><iframe src="https://www.loom.com/embed/61502ac8a9b14ad2997f47fc4d20ff66?sid=793ee3db-c3a7-4ec9-9e74-1287c680b9d0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
 
 ### Reflection
 
