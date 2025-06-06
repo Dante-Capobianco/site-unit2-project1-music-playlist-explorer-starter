@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then((data) => {
       allPlaylists = data;
-      console.log(allPlaylists);
       updatePlaylists(allPlaylists);
       if (window.location.pathname.includes("index.html")) {
         displayPlaylists();
