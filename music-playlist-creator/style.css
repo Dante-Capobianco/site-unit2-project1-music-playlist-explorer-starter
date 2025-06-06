@@ -22,7 +22,8 @@ header {
   gap: 20px;
 }
 
-.header-tab-item:hover {
+.header-tab-item:hover,
+.header-tab-item:focus {
   color: rgb(238, 228, 215);
   cursor: pointer;
 }
@@ -58,16 +59,16 @@ footer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  background-color:rgb(249, 243, 235);
+  background-color: rgb(249, 243, 235);
   transition: box-shadow 0.3s ease-in-out, scale 0.3s ease-in-out;
   box-shadow: 0 0 0 darkgray;
 }
 .playlist-cards:hover,
 .playlist-cards:focus {
   cursor: pointer;
-  background-color:rgb(238, 228, 215);
+  background-color: rgb(238, 228, 215);
   box-shadow: 10px 10px 20px lightgray;
-  scale: 1.04
+  scale: 1.04;
 }
 
 .playlist-img {
@@ -90,6 +91,10 @@ footer {
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.edit-playlist {
+  margin: 0 15px 0 auto;
 }
 
 .highlight-like.material-symbols-outlined {
@@ -161,14 +166,14 @@ footer {
 
 .shuffle-btn {
   font-size: 18px;
-  background-color:rgb(249, 243, 235);
+  background-color: rgb(249, 243, 235);
   border: 1px solid lightgray;
   border-radius: 5px;
   padding: 5px 10px 5px 10px;
 }
 .shuffle-btn:hover,
 .shuffle-btn:focus {
-  background-color:rgb(238, 228, 215);
+  background-color: rgb(238, 228, 215);
   cursor: pointer;
 }
 
@@ -184,7 +189,7 @@ footer {
   padding: 5px;
   border: 2px solid darkgray;
   margin: 5px 0 5px 0;
-  background-color:rgb(249, 243, 235);
+  background-color: rgb(249, 243, 235);
 }
 
 .modal-song-image {
@@ -225,4 +230,91 @@ footer {
   padding: 15px 20px 15px 20px;
   overflow: auto;
   width: 50vw;
+}
+
+/* Add */
+.add-playlist-btn {
+  position: absolute;
+  bottom: 8vh;
+  right: 5vw;
+  font-size: 24px;
+  background-color: rgb(249, 243, 235);
+  border: 2px solid darkgray;
+  border-radius: 15px;
+  padding: 15px 20px 15px 20px;
+  box-shadow: 10px 10px 30px black;
+}
+.add-playlist-btn:hover,
+.add-playlist-btn:focus {
+  background-color: rgb(238, 228, 215);
+  cursor: pointer;
+}
+
+.form-playlist {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-text-input, .form-song-input {
+  margin-bottom: 10px;
+  width: 15vw;
+  height: 20px;
+  padding: 5px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+}
+.form-text-input:focus, .form-song-input:focus {
+  border: 1px solid darkgray;
+}
+
+.form-song {
+  margin-bottom: 15px;
+}
+
+.form-song-input {
+  margin: 0 20px 0 0;
+  width: 10vw;
+}
+
+.form-submit {
+  font-size: 18px;
+  background-color: rgb(249, 243, 235);
+  border: 1px solid lightgray;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+.form-submit:hover,
+.form-submit:focus {
+  background-color: rgb(238, 228, 215);
+  cursor: pointer;
+}
+
+.form-file-input {
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 15vw;
+}
+
+.divider {
+  margin: 20px 0 20px 0;
+  border-bottom: 2px solid lightgray;
+}
+
+.add-song-btn:hover,
+.add-song-btn:focus {
+  color: darkgray;
+  cursor: pointer;
+}
+
+.form-delete-song {
+  font-size: 24px;
+}
+
+.form-delete-song:hover,
+.form-delete-song:focus {
+  cursor: pointer;
+  color: darkgray;
 }

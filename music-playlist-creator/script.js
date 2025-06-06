@@ -2,6 +2,7 @@
 const modal = document.getElementById("playlist-modal");
 const closeBtn = document.getElementById("close-btn");
 let allPlaylists;
+let textBoxIDCount = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
   fetch("data/data.json")
@@ -61,6 +62,12 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = newURL;
     });
 
+    const addPlaylistBtn = document.getElementById("add-playlist-btn");
+    addPlaylistBtn.addEventListener("click", function () {
+      addPlaylistBtn.blur();
+      openAddPlaylistForm();
+    });
+
     closeBtn.addEventListener("click", function () {
       modal.style.display = "none";
     });
@@ -85,6 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function displayPlaylists() {
   const playlistContainer = document.getElementById("playlist-container");
+  playlistContainer.innerHTML = "";
 
   allPlaylists.forEach((playlist) => {
     const playlistToDisplay = document.createElement("article");
@@ -98,6 +106,7 @@ function displayPlaylists() {
       <div class="playlist-like">
          <span id="heart-${playlist.playlistID}" class="material-symbols-outlined" onclick="adjustLikeCount('${playlist.playlistID}')">favorite</span> 
          <span id="like-${playlist.playlistID}">${playlist.like_count}</span>
+         <span class="edit-playlist">TEST</span>
       </div>
       `;
 
@@ -232,4 +241,173 @@ function fisherYatesShuffle(songs) {
   modalContent.appendChild(newModalSongInfo);
 }
 
-// Math.random() % allPlaylists.length
+function openAddPlaylistForm() {
+  const modalContent = document.getElementById("modal-content");
+  modalContent.replaceChildren(closeBtn);
+  const addForm = createForm(null, "Add");
+  modalContent.appendChild(addForm);
+  addForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    addPlaylist();
+  });
+
+  modal.style.display = "block";
+}
+
+function createForm(playlistData, addOrEdit) {
+  const playlistName = playlistData ? playlistData.playlist_name : "";
+  const playlistImage = playlistData ? playlist.playlist_art : "";
+  const playlistAuthor = playlistData ? playlist.playlist_author : "";
+
+  const form = document.createElement("form");
+  form.id = "addEditForm";
+  form.innerHTML = `
+   <h2>${addOrEdit} Playlist</h2>
+   <section class="form-playlist">
+      <label for="playlist-name">Playlist Name:</label>
+      <input
+         type="text"
+         id="playlist-name"
+         class="form-text-input"
+         name="playlist_name"
+         value="${playlistName}"
+      />
+      <label for="playlist-cover-image">Playlist Cover Image:</label>
+      <input
+         type="file"
+         accept="image/*"
+         id="playlist-cover-image"
+         class="form-file-input"
+         name="playlist_cover_image"
+         value="${playlistImage}"
+      />
+      <label for="playlist-author">Playlist Author:</label>
+      <input
+         type="text"
+         id="playlist-author"
+         class="form-text-input"
+         name="playlist_author"
+         value="${playlistAuthor}"
+      />
+   </section>
+   <div class="divider"></div>
+   <section id="form-songs"></section>
+   <input type="submit" class="form-submit" value="Submit" />
+   `;
+
+  const songsSection = form.querySelector("#form-songs");
+
+  songsSection.innerHTML += `
+       <h4><span id="add-song-btn" onclick="addSong()" class="add-song-btn">+ Add Song</span></h4>
+      `;
+
+  if (playlistData && playlistData.songs.length > 0 && addOrEdit === "Edit") {
+    playlistData.songs.forEach((song) => {
+      songsSection.innerHTML += `
+      <article class="form-song">
+         <label for="song-name-${textBoxIDCount}">Song Name:</label>
+         <input
+            type="text"
+            id="song-name-${textBoxIDCount}"
+            class="form-song-input"
+            name="song_name"
+            value="${song.name}"
+         />
+         <label for="song-artist-${textBoxIDCount}">Song Artist:</label>
+         <input
+            type="text"
+            id="song-artist-${textBoxIDCount}"
+            class="form-song-input"
+            name="song_artist"
+            value="${song.artist}"
+         />
+         <label for="song-duration-${textBoxIDCount}">Song Duration:</label>
+         <input
+            type="text"
+            id="song-duration-${textBoxIDCount}"
+            class="form-song-input"
+            name="song_duration"
+            value="${song.duration}"
+         />
+         <span onclick="deleteSong(${textBoxIDCount})" class="form-delete-song">&times;</span>
+      </article>
+      `;
+      textBoxIDCount++;
+    });
+  }
+
+  return form;
+}
+
+function addSong() {
+  const songsSection = document.getElementById("form-songs");
+  const newSong = document.createElement("article");
+  newSong.id = `form-song-${textBoxIDCount}`;
+  newSong.className = "form-song";
+  newSong.innerHTML = `
+      <label for="song-name-${textBoxIDCount}">Song Name:</label>
+      <input
+         type="text"
+         id="song-name-${textBoxIDCount}"
+         class="form-song-input"
+         name="song_name"
+      />
+      <label for="song-artist-${textBoxIDCount}">Song Artist:</label>
+      <input
+         type="text"
+         id="song-artist-${textBoxIDCount}"
+         class="form-song-input"
+         name="song_artist"
+      />
+      <label for="song-duration-${textBoxIDCount}">Song Duration:</label>
+      <input
+         type="text"
+         id="song-duration-${textBoxIDCount}"
+         class="form-song-input"
+         name="song_duration"
+      />
+      <span onclick="deleteSong(${textBoxIDCount})" class="form-delete-song">&times;</span>
+   `;
+  songsSection.appendChild(newSong);
+
+  textBoxIDCount++;
+}
+
+function deleteSong(songID) {
+  const songsSection = document.getElementById("form-songs");
+  const songToDelete = document.getElementById(`form-song-${songID}`);
+  songsSection.removeChild(songToDelete);
+}
+
+function addPlaylist() {
+  const form = document.getElementById("addEditForm");
+  const formData = new FormData(form);
+  const newPlaylist = {
+    playlistID: formData
+      .get("playlist_name")
+      .replaceAll(" ", "-")
+      .toLowerCase(),
+    playlist_name: formData.get("playlist_name"),
+    playlist_author: formData.get("playlist_author"),
+    playlist_art: URL.createObjectURL(formData.get("playlist_cover_image")),
+    like_count: 0,
+    songs: [],
+  };
+
+  const allSongNames = formData.getAll("song_name");
+  const allSongAuthors = formData.getAll("song_artist");
+  const allSongDurations = formData.getAll("song_duration");
+
+  allSongNames.forEach((song_name, index) => {
+    newPlaylist.songs.push({
+      name: song_name,
+      artist: allSongAuthors[index],
+      duration: allSongDurations[index],
+      song_art: "assets/img/song.png",
+    });
+  });
+  
+  allPlaylists.push(newPlaylist);
+  displayPlaylists();
+  modal.style.display = "none";
+}
