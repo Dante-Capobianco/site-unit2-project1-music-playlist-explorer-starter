@@ -2,7 +2,11 @@
 const modal = document.getElementById("playlist-modal");
 const closeBtn = document.getElementById("close-btn");
 let allPlaylists;
+let allPlaylistsDateAdded;
+let allPlaylistsAlphabetical;
+let allPlaylistsLikes;
 let textBoxIDCount = 0;
+let playlistSortingMethod = "date";
 
 document.addEventListener("DOMContentLoaded", function () {
   fetch("data/data.json")
@@ -14,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then((data) => {
       allPlaylists = data;
+      console.log(allPlaylists)
+      updatePlaylists(allPlaylists);
       if (window.location.pathname.includes("index.html")) {
         displayPlaylists();
       } else {
@@ -91,10 +97,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function displayPlaylists() {
+   const playlists = playlistSortingMethod === "date"
+      ? allPlaylistsDateAdded
+      : playlistSortingMethod === "alphabetical"
+      ? allPlaylistsAlphabetical
+      : allPlaylistsLikes;
   const playlistContainer = document.getElementById("playlist-container");
   playlistContainer.innerHTML = "";
 
-  allPlaylists.forEach((playlist) => {
+  playlists.forEach((playlist) => {
     const playlistToDisplay = document.createElement("article");
     playlistToDisplay.className = "playlist-cards";
     playlistToDisplay.id = playlist.playlistID;
@@ -120,10 +131,10 @@ function displayPlaylists() {
     playlistContainer.appendChild(playlistToDisplay);
   });
 
-  if (allPlaylists.length == 0) {
+  if (playlists.length == 0) {
     let noPlaylistsMessage = document.createElement("h3");
     noPlaylistsMessage.className = "no-playlists";
-    noPlaylistsMessage.textContent = "No playlists added";
+    noPlaylistsMessage.textContent = "No playlists added - add one!";
     playlistContainer.appendChild(noPlaylistsMessage);
   }
 }
@@ -193,6 +204,7 @@ function adjustLikeCount(selectedPlaylistID) {
   } else {
     selectedPlaylist.like_count++;
   }
+  updatePlaylists(allPlaylists);
   playlistLikeButton.classList.toggle("highlight-like");
 
   const playlistLikeCount = document.getElementById(
@@ -439,6 +451,23 @@ function addEditPlaylist(addOrEdit, currentPlaylist) {
     });
   }
 
+  updatePlaylists(allPlaylists);
+
   displayPlaylists();
   modal.style.display = "none";
+}
+
+function deletePlaylist(playlistID) {
+  allPlaylists = allPlaylists.filter(
+    (playlist) => playlist.playlistID !== playlistID
+  );
+  updatePlaylists(allPlaylists);
+  displayPlaylists();
+}
+
+function updatePlaylists(newPlaylists) {
+  allPlaylistsDateAdded = newPlaylists.toReversed();
+  allPlaylistsAlphabetical = newPlaylists.toSorted((playlistA, playlistB) => playlistA.playlist_name.localeCompare(playlistB.playlist_name));
+  allPlaylistsLikes = newPlaylists.toSorted((playlistA, playlistB) => playlistB.like_count - playlistA.like_count);
+  console.log(allPlaylists, allPlaylistsDateAdded, allPlaylistsAlphabetical, allPlaylistsLikes)
 }
